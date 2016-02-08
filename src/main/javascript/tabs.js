@@ -9,6 +9,7 @@ function tabTheSource($content) {
     var $LI = $('<li role="presentation"/>');
     var $A = $('<a role="tab" data-toggle="tab" style="text-decoration:none;"/>');
     var $WRAPPER = $('<div class="tab-content content"/>');
+    var $HTML_AND_BODY = $('html,body');
     var snippets = [];
     var languageEventElements = {};
     $('div.tabbed-example', $content).each(function () {
@@ -75,8 +76,8 @@ function tabTheSource($content) {
                 setTimeout(
                     function(){
                         var newTop = target.offset().top - beforeTop;
-                        $('html,body').scrollTop(newTop);
-                    }, 1);
+                        $HTML_AND_BODY.scrollTop(newTop);
+                    });
             });
             if (language in languageEventElements) {
                 languageEventElements[language].push($a);
